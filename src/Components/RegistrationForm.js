@@ -21,7 +21,7 @@ const RegistrationForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!passwordValidation(password)) {
-      setPasswordError("Password must contain at least one uppercase letter, one number, and be at least 8 characters long.");
+      setPasswordError("Fjalëkalimi duhet të përmbajë të paktën një shkronjë të madhe, një numër dhe të jetë të paktën 8 karaktere i gjatë.");
       setRegisterSuccess(false);
     } else {
       setPasswordError(null);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, loginFailed } from '../Redux/authSlice';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,14 @@ const LoginForm = () => {
   const students = useSelector(state => state.students);
   const [NID, setNID] = useState('');
   const [password, setPassword] = useState('');
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const auth = useSelector(state => state.auth);
+
+  useEffect(() => {
+    if (auth.currentUser) {
+      setLoginSuccess(true);
+    }
+  }, [auth.currentUser]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +27,7 @@ const LoginForm = () => {
       dispatch(login(student));
     } else {
       dispatch(loginFailed());
+      setLoginSuccess(false);
     }
   }
 
@@ -31,8 +39,8 @@ const LoginForm = () => {
         t’u identifikuar ne sistemin e 
         menaxhimit te studenteve:
         </h2>
-        {auth.error && <p style={{ color: "red" }}>{auth.error}</p>}
-        {auth.isLoggedIn && <p style={{ color: "green" }}>You logged in successfully!</p>}
+        {auth.error && <p style={{ color: "red" }}>Invalid NID or password!</p>}
+        {!auth.error && loginSuccess && <p style={{ color: "green" }}>Ju u loguat me sukses!</p>}
         <form onSubmit={handleSubmit}>
           <div id='formNID'>
             <label className='label'>NID student</label>
