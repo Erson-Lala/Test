@@ -1,0 +1,68 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .header ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .header ul li {
+    margin-right: 20px;
+  }
+  
+  #linkList  li a {
+    text-decoration: none;
+    color: rgb(41, 41, 41);
+  }
+
+  #linkList  li:hover a{
+    color: white;
+  }
+
+  #logo {
+    height: 50px;
+    margin: 5% auto;
+    margin-right: 2%;
+    display: block;
+  }
+
+  #navBar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #mainQuote{
+    display: flex;
+    justify-content: center;
+  }
+
+  #firstParagraph{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  #highSchoolSpan{
+    color: red;
+    font-size: small;
+  }
+
+  li{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 30px;
+    font-size: small;
+  }
+
+  li:hover{
+    background-color: rgb(76, 76, 76);
+  }
+

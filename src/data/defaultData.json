@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "NID": "1234",
+    "name": "Test",
+    "surname": "SurnameTest",
+    "grade": 9.55,
+    "profession": "Nxenes",
+    "education": "Universiteti i arteve, dega 'Arte te vecanta'",
+    "courses": [
+      {
+        "name": "Arte te vecanta",
+        "subscribed": true,
+        "otherInfo": "",
+        "subscribeDate": ""
+      },
+      {
+        "name": "Arte jo te vecanta",
+        "subscribed": true,
+        "otherInfo": "",
+        "subscribeDate": ""
+      },
+      {
+        "name": "Arte te thjeshta",
+        "subscribed": false,
+        "otherInfo": "",
+        "subscribeDate": ""
+      }
+    ],
+    "password": "Admin123"
+  }
+]

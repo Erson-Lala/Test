@@ -1,0 +1,110 @@
+#containerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.goingDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#infoDiv{
+    width: 50%;
+}
+
+#infoDiv h2{
+    font-size: large;
+    font-weight: 400;
+}
+
+#leftForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#middleForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#threeSeparator{
+    display: flex;
+}
+
+#labelNID{
+    margin-right: 5px;
+}
+
+#labelPassword{
+    margin-right: 13px;
+}
+
+#labelSurname{
+    margin-right: 5px;
+}
+
+#labelName{
+    margin-right: 25px;
+}
+
+
+.image-container {
+    height: 400px; /* Specify the desired height of the visible portion */
+    overflow: hidden;
+  }
+
+.studentsOutside{
+    object-fit: cover;
+    object-position: 150px 150px; /* Adjust the values to control the visible portion */
+}
+
+.formButton{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.formButton:hover{
+    background-color: rgb(72, 72, 72);
+}
+
+.input{
+    text-align: center;
+    border: 1px solid black;
+    width: 120px;
+}
+
+.input:hover{
+    background-color: rgb(72, 72, 72);
+    cursor: pointer;
+    color: white;
+}
+
+#divNID{
+    margin-bottom: 10px;
+}
+
+#divName{
+    margin-bottom: 10px;
+}
+
+#leftForm{
+    font-size: small;
+}
+
+#middleForm{
+    font-size: small;
+}

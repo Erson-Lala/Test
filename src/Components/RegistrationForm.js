@@ -1,0 +1,78 @@
+import React, { useState } from 'react';
+// import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addStudent } from '../Redux/studentSlice';
+import StudentsOutside from '../Assets/StudentsOutside.webp';
+import './RegistrationForm.css';
+
+const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  // const history = useHistory();
+  const [NID, setNID] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState(null);
+
+  const passwordValidation = (password) => {
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    return re.test(password);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!passwordValidation(password)) {
+      setPasswordError("Password must contain at least one uppercase letter, one number, and be at least 8 characters long.");
+    } else {
+      setPasswordError(null);
+      dispatch(addStudent({ NID, name, surname, password }));
+      // history.push('/login');
+    }
+  }
+
+  return (
+    <div>
+      <div id='containerDiv'>
+        <div id='infoDiv'> 
+          <h2>Plotesoni te dhenat e meposhtme 
+            per t’u rregjistruar ne sistemin 
+            e menaxhimit te studenteve:
+          </h2>
+        </div>
+          <form onSubmit={handleSubmit}>
+          <div id='threeSeparator'>
+          <div  className='goingDown' id='leftForm'>
+            <div id='divNID'>
+              <label id='labelNID'>NID studenti*</label>
+              <input className='input' type="text" value={NID} onChange={(e) => setNID(e.target.value)} required />
+            </div>
+            <div id='divPassword'>
+            <label id='labelPassword'>Fjalekalimi*</label>
+            <input className='input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
+            </div>
+          </div>
+          <div className='goingDown' id='middleForm'>
+            <div id='divName'>
+              <label id='labelName'>Emer Studenti</label>
+              <input className='input' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div id='divSurname'>
+              <label id='labelSurname'>Mbiemer Studenti</label>
+              <input className='input' type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
+            </div>
+          </div>
+          <div className='goingDown'>
+            <button type="submit" className='formButton'>Register</button>
+          </div>
+          </div>
+        </form>
+      </div>
+      <div className='image-container'>
+        <img src={StudentsOutside} id='studentsOutside'/>
+      </div>
+    </div>
+  );
+}
+
+export default RegistrationForm;
