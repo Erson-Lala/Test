@@ -66,7 +66,7 @@ const LoginForm = () => {
           <Link id='registerLink' to="/register"><button className='formButton'>Regjistrohu</button></Link>
         </form>
       </div>
-      <div id='imgDiv'><img id='studentsImage' src={StudentsInClass}/></div>
+      <div id='imgDiv'><img alt='' id='studentsImage' src={StudentsInClass}/></div>
     </div>
   );
 }

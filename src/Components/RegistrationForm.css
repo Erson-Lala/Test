@@ -58,13 +58,13 @@
 
 
 .image-container {
-    height: 400px; /* Specify the desired height of the visible portion */
+    height: 400px;
     overflow: hidden;
   }
 
 .studentsOutside{
     object-fit: cover;
-    object-position: 150px 150px; /* Adjust the values to control the visible portion */
+    object-position: 150px 150px;
 }
 
 .formButton{

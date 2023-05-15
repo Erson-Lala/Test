@@ -70,7 +70,7 @@ const RegistrationForm = () => {
         {registerSuccess && <p style={{ color: "green" }}>Urime, ju jeni regjistruar!</p>}
       </div>
       <div className='image-container'>
-        <img src={StudentsOutside} id='studentsOutside'/>
+        <img alt='' src={StudentsOutside} id='studentsOutside'/>
       </div>
     </div>
   );

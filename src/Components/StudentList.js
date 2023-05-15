@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteStudent, populateStudents } from '../Redux/studentSlice';
 import './StudentList.css' 
-import data from '../data/defaultData.json'; // adjust path as necessary
+import data from '../data/defaultData.json';
 
 const StudentList = () => {
   const students = useSelector((state) => state.students);

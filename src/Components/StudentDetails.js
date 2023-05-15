@@ -5,7 +5,7 @@ import { updateStudent } from '../Redux/studentSlice';
 import './StudentDetails.css'
 
 const StudentDetails = () => {
-  const { NID } = useParams(); // get the NID from the URL
+  const { NID } = useParams();
   const dispatch = useDispatch();
   const student = useSelector(state => state.students.find(student => student.NID === NID));
   
@@ -13,23 +13,15 @@ const StudentDetails = () => {
   const [profession, setProfession] = useState(student ? student.profession : "");
   const [education, setEducation] = useState(student ? student.education : "");
   const [courses, setCourses] = useState(student ? student.courses : []);
-  const [subject, setSubject] = useState(student ? student.subject : []);
-  const [subscribe, setSubscribe] = useState(student ? student.subscribe : []);
-  const [date, setDate] = useState(student ? student.date : []);
-  const [otherInfo, setOtherInfo] = useState(student ? student.otherInfo : []);
 
   const handleSave = () => {
     if (student) {
       const updatedStudent = {
         ...student,
-        grade: grade,
-        profession: profession,
-        education: education,
-        courses: courses,
-        subject: subject,
-        subscribe: subscribe,
-        date: date,
-        otherInfo: otherInfo,
+        grade,
+        profession,
+        education,
+        courses,
       };
   
       dispatch(updateStudent(updatedStudent));
@@ -38,7 +30,7 @@ const StudentDetails = () => {
 
   return (
     <div className='container'>
-      <h2>Detajet e Studentit</h2>
+      <h2>Editoni nje student per te pare Detajet</h2>
       <table>
         <tr>
           <td>NID studenti</td>
@@ -74,20 +66,48 @@ const StudentDetails = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className='tableRow'>
-            <td> 
-            <input value={subject} onChange={(e) => setSubject(e.target.value)} />
-            </td>
-            <td><input value={subscribe} onChange={(e) => setSubscribe(e.target.value)} /></td>
-            <td><input value={date} onChange={(e) => setDate(e.target.value)} /></td>
-            <td><input value={otherInfo} onChange={(e) => setOtherInfo(e.target.value)} /></td>
+          {courses.map((course, index) => (
+            <tr key={index}>
+              <td>
+                <input
+                  value={course.name}
+                  onChange={(e) =>
+                    setCourses(courses.map((c, i) => (i === index ? { ...c, name: e.target.value } : c)))
+                  }
+                />
+              </td>
+              <td>
+                <input
+                  value={course.subscribed}
+                  onChange={(e) =>
+                    setCourses(courses.map((c, i) => (i === index ? { ...c, subscribed: e.target.value } : c)))
+                  }
+                />
+              </td>
+              <td>
+                <input
+                  value={course.subscribeDate}
+                  onChange={(e) =>
+                    setCourses(courses.map((c, i) => (i === index ? { ...c, subscribeDate: e.target.value } : c)))
+                  }
+                />
+              </td>
+              <td>
+                <input
+                  value={course.otherInfo}
+                  onChange={(e) =>
+                    setCourses(courses.map((c, i) => (i === index ? {...c, otherInfo: e.target.value } : c)))
+                  }
+                />
+              </td>
             </tr>
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
   
-        <button className='formButton' onClick={handleSave}>Save Changes</button>
-      </div>
-    );
-  }
-  
-  export default StudentDetails;
+      <button className='formButton' onClick={handleSave}>Save Changes</button>
+    </div>
+  );
+}
+
+export default StudentDetails;
