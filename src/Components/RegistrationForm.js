@@ -67,7 +67,7 @@ const RegistrationForm = () => {
           </div>
         </form>
         {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
-        {registerSuccess && <p style={{ color: "green" }}>Congratulations, you have been registered!</p>}
+        {registerSuccess && <p style={{ color: "green" }}>Urime, ju jeni regjistruar!</p>}
       </div>
       <div className='image-container'>
         <img src={StudentsOutside} id='studentsOutside'/>

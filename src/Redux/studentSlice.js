@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAction } from '@reduxjs/toolkit'
+
+export const populateStudents = createAction('students/populate');
 
 const initialState = JSON.parse(localStorage.getItem('students')) || [];
 
@@ -21,6 +23,11 @@ const studentSlice = createSlice({
         state.splice(index, 1);
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(populateStudents, (state, action) => {
+      return action.payload;
+    })
   },
 })
 

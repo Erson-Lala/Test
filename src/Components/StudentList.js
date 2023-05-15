@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteStudent } from '../Redux/studentSlice';
+import { deleteStudent, populateStudents } from '../Redux/studentSlice';
 import './StudentList.css' 
+import data from '../data/defaultData.json'; // adjust path as necessary
 
 const StudentList = () => {
   const students = useSelector((state) => state.students);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(populateStudents(data))
+  }, [dispatch]);
+
 
   const handleDelete = (NID) => {
     dispatch(deleteStudent(NID));
