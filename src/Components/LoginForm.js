@@ -31,7 +31,8 @@ const LoginForm = () => {
         t’u identifikuar ne sistemin e 
         menaxhimit te studenteve:
         </h2>
-        {auth.error && <p>{auth.error}</p>}
+        {auth.error && <p style={{ color: "red" }}>{auth.error}</p>}
+        {auth.isLoggedIn && <p style={{ color: "green" }}>You logged in successfully!</p>}
         <form onSubmit={handleSubmit}>
           <div id='formNID'>
             <label className='label'>NID student</label>

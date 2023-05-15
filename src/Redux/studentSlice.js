@@ -10,13 +10,9 @@ const studentSlice = createSlice({
       state.push(action.payload);
     },
     updateStudent: (state, action) => {
-      const { NID, name, surname, numberOfSubscribedSubjects } = action.payload;
-      const existingStudent = state.find(student => student.NID === NID);
-
-      if (existingStudent) {
-        existingStudent.name = name;
-        existingStudent.surname = surname;
-        existingStudent.numberOfSubscribedSubjects = numberOfSubscribedSubjects;
+      const index = state.findIndex(student => student.NID === action.payload.NID);
+      if (index !== -1) {
+        state[index] = action.payload;
       }
     },
     deleteStudent: (state, action) => {

@@ -4,3 +4,21 @@
     align-items: center;
     flex-direction: column;
 }
+
+input{
+    text-align: center;
+}
+
+.formButton{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.formButton:hover{
+    background-color: rgb(72, 72, 72);
+}

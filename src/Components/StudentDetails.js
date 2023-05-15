@@ -13,6 +13,10 @@ const StudentDetails = () => {
   const [profession, setProfession] = useState(student ? student.profession : "");
   const [education, setEducation] = useState(student ? student.education : "");
   const [courses, setCourses] = useState(student ? student.courses : []);
+  const [subject, setSubject] = useState(student ? student.subject : []);
+  const [subscribe, setSubscribe] = useState(student ? student.subscribe : []);
+  const [date, setDate] = useState(student ? student.date : []);
+  const [otherInfo, setOtherInfo] = useState(student ? student.otherInfo : []);
 
   const handleSave = () => {
     if (student) {
@@ -21,7 +25,11 @@ const StudentDetails = () => {
         grade: grade,
         profession: profession,
         education: education,
-        courses: courses
+        courses: courses,
+        subject: subject,
+        subscribe: subscribe,
+        date: date,
+        otherInfo: otherInfo,
       };
   
       dispatch(updateStudent(updatedStudent));
@@ -30,31 +38,31 @@ const StudentDetails = () => {
 
   return (
     <div className='container'>
-      <h2>Student Details</h2>
+      <h2>Detajet e Studentit</h2>
       <table>
         <tr>
-          <td>NID:</td>
+          <td>NID studenti</td>
           <td>{student ? student.NID : ""}</td>
         </tr>
         <tr>
-          <td>Name:</td>
+          <td>Emer studenti</td>
           <td>{student ? student.name : ""}</td>
         </tr>
         <tr>
-          <td>Average Grade:</td>
+          <td>Nota mesatare</td>
           <td><input value={grade} onChange={(e) => setGrade(e.target.value)} /></td>
         </tr>
         <tr>
-          <td>Desired Profession:</td>
+          <td>Profesioni i deshiruar</td>
           <td><input value={profession} onChange={(e) => setProfession(e.target.value)} /></td>
         </tr>
         <tr>
-          <td>School:</td>
+          <td>Te dhena te pergjithshme shkollimi</td>
           <td><input value={education} onChange={(e) => setEducation(e.target.value)} /></td>
         </tr>
       </table>
 
-      <button onClick={handleSave}>Save Changes</button>
+      <button className='formButton' onClick={handleSave}>Save Changes</button>
 
       <table>
         <thead>
@@ -66,55 +74,18 @@ const StudentDetails = () => {
           </tr>
         </thead>
         <tbody>
-        {courses && Array.isArray(courses) && courses.map((course, index) => (
-          <tr key={course.name}>
-            <td><input value={course.name} onChange={(e) => {
-              let updatedCourses = [...courses];
-              updatedCourses[index].name = e.target.value;
-              setCourses(updatedCourses);
-            }} /></td>
-            <td><input type="checkbox" checked={course.subscribed} onChange={(e) => {
-              let updatedCourses = [...courses];
-              updatedCourses[index].subscribed = e.target.checked;
-              setCourses(updatedCourses);
-            }} /></td>
-            <td><input value={course.subscribeDate} onChange={(e) => {
-              let updatedCourses = [...courses];
-              updatedCourses[index].subscribeDate = e.target.value;
-              setCourses(updatedCourses);
-            }} /></td>
-            <td><input value={course.otherInfo} onChange={(e) => {
-              let updatedCourses = [...courses];
-              updatedCourses[index].otherInfo = e.target.value;
-              setCourses(updatedCourses);
-            }} /></td>
+          <tr className='tableRow'>
+            <td> 
+            <input value={subject} onChange={(e) => setSubject(e.target.value)} />
+            </td>
+            <td><input value={subscribe} onChange={(e) => setSubscribe(e.target.value)} /></td>
+            <td><input value={date} onChange={(e) => setDate(e.target.value)} /></td>
+            <td><input value={otherInfo} onChange={(e) => setOtherInfo(e.target.value)} /></td>
             </tr>
-          ))}
-          <tr>
-            <textField></textField>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
           </tbody>
         </table>
   
-        <button onClick={handleSave}>Save Changes</button>
+        <button className='formButton' onClick={handleSave}>Save Changes</button>
       </div>
     );
   }

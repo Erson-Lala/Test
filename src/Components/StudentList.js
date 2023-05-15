@@ -33,7 +33,7 @@ const StudentList = () => {
               <td>{student.surname}</td>
               <td>{student.numberOfSubscribedSubjects}</td>
               <td className='tdLink'><Link id='link' to={`/students/${student.NID}`}>Edit</Link></td>
-              <td className='tdDelete'><button className='deleteButton' onClick={() => handleDelete(student.NID)}>X</button></td>
+              <td className='tdDelete'><button className='deleteButton formButton' onClick={() => handleDelete(student.NID)}>X</button></td>
             </tr>
           ))}
             <tr>
