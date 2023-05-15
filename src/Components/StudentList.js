@@ -17,12 +17,12 @@ const StudentList = () => {
       <table className='table'>
         <thead>
           <tr>
-            <th>NID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Nr of Subjects Subscribed</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>NID studenti</th>
+            <th>Emer studenti</th>
+            <th>Mbiemer studenti</th>
+            <th>Nr i lendeve te bera subscribe</th>
+            <th>Modifiko</th>
+            <th>Fshi</th>
           </tr>
         </thead>
         <tbody>

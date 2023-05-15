@@ -16,7 +16,7 @@ const RegistrationForm = () => {
 
   const passwordValidation = (password) => {
     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-    return re.test(password);
+    // return re.test(password);
   };
 
   const handleSubmit = (event) => {

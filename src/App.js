@@ -6,6 +6,7 @@ import StudentList from './Components/StudentList';
 import StudentDetails from './Components/StudentDetails';
 import RegistrationForm from './Components/RegistrationForm';
 import Header from './Components/Header';
+// import ProtectedRoute from './Components/ProtectedRoute';
 
 const App = () => {
   const students = useSelector(state => state.students);
