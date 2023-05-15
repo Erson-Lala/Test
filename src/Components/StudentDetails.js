@@ -30,7 +30,7 @@ const StudentDetails = () => {
 
   return (
     <div className='container'>
-      <h2>Editoni nje student per te pare Detajet</h2>
+      <h2>Editoni nje student tek "Studentet" per te pare Detajet</h2>
       <table>
         <tr>
           <td>NID studenti</td>
