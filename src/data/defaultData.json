@@ -41,20 +41,20 @@
       {
         "name": "Arte te vecanta",
         "subscribed": true,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. X, 3 kredite",
+        "subscribeDate": "2022-01-15"
       },
       {
         "name": "Arte jo te vecanta",
         "subscribed": false,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. Y, 2 kredite",
+        "subscribeDate": "2022-02-10"
       },
       {
         "name": "Arte te thjeshta",
         "subscribed": true,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. Z, 4 kredite",
+        "subscribeDate": "2022-03-20"
       }
     ],
     "password": "Admin123"
@@ -71,22 +71,22 @@
       {
         "name": "Arte te vecanta",
         "subscribed": false,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. X, 3 kredite",
+        "subscribeDate": "2022-04-12"
       },
       {
         "name": "Arte jo te vecanta",
         "subscribed": true,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. Y, 2 kredite",
+        "subscribeDate": "2022-05-22"
       },
       {
         "name": "Arte te thjeshta",
         "subscribed": false,
-        "otherInfo": "",
-        "subscribeDate": ""
+        "otherInfo": "Mësimdhënës Prof. Z, 4 kredite",
+        "subscribeDate": "2022-06-15"
       }
     ],
     "password": "Admin123"
-  }
+  }  
 ]
