@@ -25,7 +25,7 @@ const RegistrationForm = () => {
       setRegisterSuccess(false);
     } else {
       setPasswordError(null);
-      dispatch(addStudent({ NID, name, surname, password }));
+      dispatch(addStudent({ NID, name, surname, password, courses: [] }));
       setRegisterSuccess(true);
     }
   }
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
         {registerSuccess && <p style={{ color: "green" }}>Urime, ju jeni regjistruar!</p>}
       </div>
       <div className='image-container'>
-        <img alt='' src={StudentsOutside} id='studentsOutside'/>
+        <img alt='' src={StudentsOutside} className="cropped-image"/>
       </div>
     </div>
   );

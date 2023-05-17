@@ -1,0 +1,25 @@
+.scale-enter {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  
+  .scale-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity 300ms ease-in, transform 300ms ease-in;
+  }
+  
+  .scale-exit {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .scale-exit-active {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: opacity 0ms, transform 300ms ease-in;
+  }
+  
+  body {
+    overflow: hidden;
+  }

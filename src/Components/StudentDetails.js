@@ -7,7 +7,7 @@ import './StudentDetails.css'
 const StudentDetails = () => {
   const { NID } = useParams();
   const dispatch = useDispatch();
-  const student = useSelector(state => state.students.find(student => student.NID === NID));
+  const student = useSelector(state => state.students.find(student => String(student.NID) === String(NID)));
   
   const [grade, setGrade] = useState(student ? student.grade : "");
   const [profession, setProfession] = useState(student ? student.profession : "");
@@ -66,7 +66,8 @@ const StudentDetails = () => {
           </tr>
         </thead>
         <tbody>
-          {courses.map((course, index) => (
+        {courses?
+          courses?.map((course, index) => (
             <tr key={index}>
               <td>
                 <input
@@ -101,7 +102,14 @@ const StudentDetails = () => {
                 />
               </td>
             </tr>
-          ))}
+          ))
+          : 
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>}
         </tbody>
       </table>
   

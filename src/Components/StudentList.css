@@ -10,8 +10,20 @@ table {
   #link{
     text-decoration: none;
     color: rgb(102, 21, 21);
+    width: 100%;
   }
-  
+
+  .tdLink{
+    padding: 0;
+  }
+  .tdLink > a{
+    width: 100%;
+  }
+
+  .tdLink, .tdLink > a{
+    cursor: cell !important;
+  }
+
   .tdLink:hover #link{
     color: white;
   }
@@ -36,22 +48,46 @@ table {
     text-align: center;
   }
 
-  #deleteButton{
+  .deleteButton{
+    width: 50px !important;
     background-color: transparent;
   }
 
-  #deleteButton:hover{
-    cursor:cell;
+  .deleteButton:hover{
+    cursor:not-allowed;
   }
 
   .formButton{
     background-color: black;
     color: white;
     border: none;
-    width: auto;
+    /* width: 30px; */
     cursor: pointer;
 }
 
 .formButton:hover{
     background-color: rgb(72, 72, 72);
+}
+
+.tdLink {
+  position: relative;
+}
+
+#link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.link-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

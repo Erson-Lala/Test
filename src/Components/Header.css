@@ -59,10 +59,20 @@
     align-items: center;
     text-align: center;
     height: 30px;
-    font-size: small;
+    font-size: medium;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 
   li:hover{
     background-color: rgb(76, 76, 76);
   }
 
+  .logOut{
+      background-color: black;
+      color: white;
+      border: none;
+      width: 100px;
+      height: 30px;
+      font-size: 11px;
+      cursor: pointer;
+  }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteStudent, populateStudents } from '../Redux/studentSlice';
@@ -7,11 +7,15 @@ import data from '../data/defaultData.json';
 
 const StudentList = () => {
   const students = useSelector((state) => state.students);
+  const [emptyRows, setEmptyRows] = useState(8);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(populateStudents(data))
-  }, [dispatch]);
+    if (students.length === 0) {
+      dispatch(populateStudents(data));
+    }
+  }, [dispatch, students]);
+
 
 
   const handleDelete = (NID) => {
@@ -38,74 +42,20 @@ const StudentList = () => {
               <td>{student.name}</td>
               <td>{student.surname}</td>
               <td>{student.numberOfSubscribedSubjects}</td>
-              <td className='tdLink'><Link id='link' to={`/students/${student.NID}`}>Edit</Link></td>
-              <td className='tdDelete'><button className='deleteButton formButton' onClick={() => handleDelete(student.NID)}>X</button></td>
+              <td className='tdLink'><Link id='link' to={`/students/${student.NID}`}><div className='link-content'>Edit</div></Link></td>
+              <button className='deleteButton formButton' onClick={() => handleDelete(student.NID)}>X</button>
             </tr>
           ))}
-            <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+            {Array.from({length: emptyRows}).map((_, index) => (
+            <tr key={`empty-${index}`}>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

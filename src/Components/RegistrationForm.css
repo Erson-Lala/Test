@@ -62,9 +62,8 @@
     overflow: hidden;
   }
 
-.studentsOutside{
-    object-fit: cover;
-    object-position: 150px 150px;
+.cropped-image{
+    object-position: -650px 20px;
 }
 
 .formButton{
