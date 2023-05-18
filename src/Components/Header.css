@@ -76,3 +76,8 @@
       font-size: 11px;
       cursor: pointer;
   }
+
+  .logoLink{
+    display: flex;
+    align-items: center;
+  }

@@ -4,11 +4,14 @@ import { login, loginFailed } from '../Redux/authSlice';
 import { Link } from 'react-router-dom';
 import './LoginForm.css';
 import StudentsInClass from '../Assets/StudentsInClass.webp';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const students = useSelector(state => state.students);
   const [NID, setNID] = useState('');
+  const currentUser = useSelector(state => state.auth.currentUser);
   const [password, setPassword] = useState('');
   const [loginSuccess, setLoginSuccess] = useState(false);
   const auth = useSelector(state => state.auth);
@@ -16,6 +19,9 @@ const LoginForm = () => {
   useEffect(() => {
     if (auth.currentUser) {
       setLoginSuccess(true);
+      setTimeout(() =>
+        {navigate(`/students/${currentUser.NID}`)},
+      2000);
     }
   }, [auth.currentUser]);
 
@@ -39,7 +45,10 @@ const LoginForm = () => {
         t’u identifikuar ne sistemin e 
         menaxhimit te studenteve:
         </h2>
-        {auth.error && <p style={{ color: "red" }}>Invalid NID or password!</p>}
+        {auth.error && <p style={{ color: "red" }}>
+          Nuk ekziston perdorues me te
+          njejtat kredenciale te studenteve!
+        </p>}
         {!auth.error && loginSuccess && <p style={{ color: "green" }}>Ju u loguat me sukses!</p>}
         <form onSubmit={handleSubmit}>
           <div id='formNID'>
