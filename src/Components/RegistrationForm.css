@@ -62,9 +62,9 @@
     overflow: hidden;
   }
 
-.cropped-image{
+/* .cropped-image{
     object-position: -650px 20px;
-}
+} */
 
 .formButton{
     background-color: black;
